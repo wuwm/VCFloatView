@@ -26,7 +26,7 @@
         
         self.closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.closeButton setBackgroundImage:[UIImage imageNamed:@"close.png"] forState:(UIControlStateNormal)];
-        [self.closeButton addTarget:self action:@selector(dismissFromBtn) forControlEvents: UIControlEventTouchDown];
+        [self.closeButton addTarget:self action:@selector(dismissFromBtn) forControlEvents: UIControlEventTouchUpInside];
     }
     return self;
 }

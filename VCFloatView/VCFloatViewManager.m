@@ -31,6 +31,7 @@
         self.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)];
         self.backgroundView.backgroundColor = [UIColor grayColor];
         self.backgroundView.alpha = 0.4;
+        [self addTouchGestureToView: self.backgroundView];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotifyFloatViewDismiss) name:@"VCFloatViewDismiss" object:nil];
     }
     return self;
@@ -55,14 +56,20 @@
 
 }
 
+- (void)addTouchGestureToView: (UIView *)view
+{
+    UITapGestureRecognizer *touchRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickedBackground)];
+    [view addGestureRecognizer:touchRecognizer];
+}
+
+- (void)onClickedBackground
+{
+    [self dissmissCurrentFloatView];
+}
+
 - (void)onNotifyFloatViewDismiss
 {
     [self.backgroundView removeFromSuperview];
-}
-
-- (void)showNextFloatViewOnView:(UIView *)view
-{
-
 }
 
 -(void)showNextFloatViewOnView:(UIView *)view animated:(BOOL)animated
@@ -105,6 +112,7 @@
 -(void)dissmissCurrentFloatView
 {
     [self.currentFloatView dismissAnimated:YES];
+    [self.backgroundView removeFromSuperview];
 }
 
 
