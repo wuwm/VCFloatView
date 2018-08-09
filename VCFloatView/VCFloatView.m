@@ -7,6 +7,7 @@
 //
 
 #import "VCFloatView.h"
+#import <UserNotifications/UserNotifications.h>
 
 @interface VCFloatView()
 
@@ -68,9 +69,22 @@
     self.closeButton.frame = CGRectMake(self.bounds.size.width - 15, -15, 30, 30);
 }
 
--(void)dismiss
+-(void)dismissAnimated:(BOOL)animated
 {
-    [self removeFromSuperview];
+    if(animated)
+    {
+        [UIView animateWithDuration:0.2
+                         animations:^{
+                             self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.2, 1.2);
+                         }
+                         completion:^(BOOL finished) {
+                             [UIView animateWithDuration:0.3 animations:^{
+                                 self.transform = CGAffineTransformScale(CGAffineTransformIdentity, CGFLOAT_MIN, CGFLOAT_MIN);
+                             } completion:^(BOOL finished) {
+                                 [self removeFromSuperview];
+                             }];
+                         }];
+    }
 }
 
 - (void)dismissFromBtn
@@ -79,6 +93,7 @@
     {
         self.dismissBlk();
     }
-    [self dismiss];
+    [self dismissAnimated:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"VCFloatViewDismiss" object:nil];
 }
 @end

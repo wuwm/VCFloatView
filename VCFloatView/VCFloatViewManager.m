@@ -8,6 +8,7 @@
 
 #import "VCFloatViewManager.h"
 #import "VCFloatView.h"
+#import <UserNotifications/UserNotifications.h>
 
 @interface VCFloatViewManager()
 
@@ -28,7 +29,9 @@
         self.viewQueue_HighPriority = [[NSMutableArray alloc] init];
         self.currentFloatView = nil;
         self.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)];
-        self.backgroundView.backgroundColor = [UIColor greenColor];
+        self.backgroundView.backgroundColor = [UIColor grayColor];
+        self.backgroundView.alpha = 0.4;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNotifyFloatViewDismiss) name:@"VCFloatViewDismiss" object:nil];
     }
     return self;
 }
@@ -52,9 +55,9 @@
 
 }
 
-- (void)showNextFloatView
+- (void)onNotifyFloatViewDismiss
 {
-    
+    [self.backgroundView removeFromSuperview];
 }
 
 - (void)showNextFloatViewOnView:(UIView *)view
@@ -101,7 +104,7 @@
 
 -(void)dissmissCurrentFloatView
 {
-    [self.currentFloatView dismiss];
+    [self.currentFloatView dismissAnimated:YES];
 }
 
 

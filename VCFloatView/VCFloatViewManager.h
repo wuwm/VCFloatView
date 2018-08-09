@@ -17,10 +17,6 @@ typedef NS_ENUM(NSUInteger, FloatViewPriority)
 
 @interface VCFloatViewManager : NSObject
 
-- (void)showNextFloatView;
-
-- (void)showNextFloatViewOnView: (UIView *)view;
-
 - (void)showNextFloatViewOnView: (UIView *)view animated: (BOOL)animated;
 
 - (void)addFloatView: (VCFloatView *)floatView andPriority: (FloatViewPriority) floatViewPriority;

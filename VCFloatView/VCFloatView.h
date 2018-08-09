@@ -21,6 +21,6 @@ typedef void (^VCFloatViewDismissBlk) (void);
 
 - (void)reloadPageViews;
 
-- (void)dismiss;
+- (void)dismissAnimated: (BOOL)animated;
 
 @end
