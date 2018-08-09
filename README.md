@@ -7,4 +7,4 @@ VCFloatView makes float views pop up and dismiss according to their priority. It
 
 # Demo
 
-![](demo_drop.gif)
+![](demo_floatview.gif)
