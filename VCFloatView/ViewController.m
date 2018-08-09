@@ -7,8 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "VCFloatViewManager.h"
+#import "VCFloatView.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong) VCFloatViewManager *fvmgr;
 
 @end
 
@@ -16,6 +20,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.fvmgr = [[VCFloatViewManager alloc] init];
+    UIView *v = [[UIView alloc] initWithFrame:(CGRectMake(0, 0, 100, 150))];
+    v.backgroundColor = [UIColor blueColor];
+    VCFloatView *floatView = [[VCFloatView alloc] initWithFrame:CGRectMake(0, 0, 100, 150) andDismissBlock:^{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"asdf" message:nil delegate:nil cancelButtonTitle:@"af" otherButtonTitles: nil];
+        [alert show];
+    }];
+    [floatView addPageView:v];
+    [floatView reloadPageViews];
+    [self.fvmgr addFloatView:floatView andPriority: VCFloatViewPriorityHigh];
+    [self.fvmgr showNextFloatViewOnView:self.view animated:YES];
     // Do any additional setup after loading the view, typically from a nib.
 }
 

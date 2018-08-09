@@ -13,6 +13,9 @@
 		AB556FFB211BD8EE0033C127 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB556FFA211BD8EE0033C127 /* Assets.xcassets */; };
 		AB556FFE211BD8EE0033C127 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB556FFC211BD8EE0033C127 /* LaunchScreen.storyboard */; };
 		AB557001211BD8EE0033C127 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB557000211BD8EE0033C127 /* main.m */; };
+		AB557009211BD9020033C127 /* VCFloatViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB557008211BD9020033C127 /* VCFloatViewManager.m */; };
+		AB55700C211BDDBE0033C127 /* VCFloatView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB55700B211BDDBE0033C127 /* VCFloatView.m */; };
+		AB55700E211C0FB00033C127 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = AB55700D211C0FB00033C127 /* close.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,11 @@
 		AB556FFD211BD8EE0033C127 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB556FFF211BD8EE0033C127 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB557000211BD8EE0033C127 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AB557007211BD9020033C127 /* VCFloatViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCFloatViewManager.h; sourceTree = "<group>"; };
+		AB557008211BD9020033C127 /* VCFloatViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCFloatViewManager.m; sourceTree = "<group>"; };
+		AB55700A211BDDBE0033C127 /* VCFloatView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCFloatView.h; sourceTree = "<group>"; };
+		AB55700B211BDDBE0033C127 /* VCFloatView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCFloatView.m; sourceTree = "<group>"; };
+		AB55700D211C0FB00033C127 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,7 @@
 		AB556FF0211BD8ED0033C127 /* VCFloatView */ = {
 			isa = PBXGroup;
 			children = (
+				AB55700D211C0FB00033C127 /* close.png */,
 				AB556FF1211BD8ED0033C127 /* AppDelegate.h */,
 				AB556FF2211BD8ED0033C127 /* AppDelegate.m */,
 				AB556FF4211BD8ED0033C127 /* ViewController.h */,
@@ -67,6 +76,10 @@
 				AB556FFC211BD8EE0033C127 /* LaunchScreen.storyboard */,
 				AB556FFF211BD8EE0033C127 /* Info.plist */,
 				AB557000211BD8EE0033C127 /* main.m */,
+				AB557007211BD9020033C127 /* VCFloatViewManager.h */,
+				AB557008211BD9020033C127 /* VCFloatViewManager.m */,
+				AB55700A211BDDBE0033C127 /* VCFloatView.h */,
+				AB55700B211BDDBE0033C127 /* VCFloatView.m */,
 			);
 			path = VCFloatView;
 			sourceTree = "<group>";
@@ -129,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB556FFE211BD8EE0033C127 /* LaunchScreen.storyboard in Resources */,
+				AB55700E211C0FB00033C127 /* close.png in Resources */,
 				AB556FFB211BD8EE0033C127 /* Assets.xcassets in Resources */,
 				AB556FF9211BD8ED0033C127 /* Main.storyboard in Resources */,
 			);
@@ -141,6 +155,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB55700C211BDDBE0033C127 /* VCFloatView.m in Sources */,
+				AB557009211BD9020033C127 /* VCFloatViewManager.m in Sources */,
 				AB556FF6211BD8ED0033C127 /* ViewController.m in Sources */,
 				AB557001211BD8EE0033C127 /* main.m in Sources */,
 				AB556FF3211BD8ED0033C127 /* AppDelegate.m in Sources */,
