@@ -10,3 +10,7 @@ You can customize actions after dimissing, with the help of Block in Objective-C
 # Demo
 
 ![](demo_floatview.gif)
+
+# License
+
+MIT
