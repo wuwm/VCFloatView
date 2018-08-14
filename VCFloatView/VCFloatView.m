@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) NSMutableArray<UIView *> *pageViews;
 @property (nonatomic, strong) UIButton *closeButton;
+@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UIPageControl *pageControl;
 
 @end
 
@@ -23,31 +25,84 @@
     if(self = [super initWithFrame:frame])
     {
         self.pageViews = [[NSMutableArray<UIView *> alloc] init];
-        
-        self.closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.closeButton setBackgroundImage:[UIImage imageNamed:@"close.png"] forState:(UIControlStateNormal)];
-        [self.closeButton addTarget:self action:@selector(dismissFromBtn) forControlEvents: UIControlEventTouchUpInside];
+        [self addCloseButton];
+        [self addScrollView];
+        [self addPageControl];
+//        [self addPageViewsToScrollView];
     }
     return self;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame andDismissBlock: (VCFloatViewDismissBlk) blk
+- (instancetype)initWithFrame:(CGRect)frame andIdentifier:(NSString *)identifier
 {
     if(self = [self initWithFrame:frame])
     {
-        self.dismissBlk = [blk copy];
+        self.identifier = identifier;
     }
     return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame andIdentifier:(NSString *)identifier andPageViews:(NSMutableArray<UIView *> *)pageViews
+{
+    if(self = [self initWithFrame:frame andIdentifier:identifier])
+    {
+        self.pageViews = pageViews;
+    }
+    return self;
+}
+
+- (void)addCloseButton
+{
+    self.closeButton     = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.closeButton setBackgroundImage:[UIImage imageNamed:@"close.png"] forState:(UIControlStateNormal)];
+    [self.closeButton addTarget:self action:@selector(dismissFromBtn) forControlEvents: UIControlEventTouchUpInside];
+    [self addSubview: self.closeButton];
+}
+
+- (void)addPageControl
+{
+    self.pageControl = [[UIPageControl alloc] init];
+    self.pageControl.numberOfPages = 3;
+    self.pageControl.currentPage = 1;
+//    self.pageControl.tintColor = [UIColor blackColor];
+    self.pageControl.backgroundColor = [UIColor orangeColor];
+    self.pageControl.pageIndicatorTintColor = [UIColor whiteColor];
+    self.pageControl.currentPageIndicatorTintColor = [UIColor redColor];
+    [self addSubview: self.pageControl];
+}
+
+- (void)addScrollView
+{
+    self.scrollView = [[UIScrollView alloc] init];
+    self.scrollView.center = self.center;
+    self.scrollView.contentSize = CGSizeMake(self.pageViews.count * self.frame.size.width, self.frame.size.height);
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.showsVerticalScrollIndicator = NO;
+    self.scrollView.delegate = self;
+    [self addSubview: self.scrollView];
+}
+
+- (void)addPageViewsToScrollView
+{
+    for(int idx = 0; idx < self.pageViews.count; ++idx)
+    {
+//        CGRect expectedFrame = CGRectMake(idx * self.bounds.size.width, 0, self.bounds.size.width, self.bounds.size.height);
+//        CGRect expectedFrame = CGRectMake(40, 0, self.bounds.size.width, self.bounds.size.height);
+//        [self.pageViews[idx] setFrame: expectedFrame];
+        [self.scrollView addSubview: self.pageViews[idx]];
+    }
+//    [self.scrollView addSubview: self.pageViews[0]];
+//    [self.scrollView addSubview: self.pageViews[1]];
 }
 
 - (void)reloadPageViews
 {
-    for(UIView *pageView in [self subviews])
+    for(UIView *pageView in [self.scrollView subviews])
     {
         [pageView removeFromSuperview];
     }
-    [self addPageViewsToView];
-    [self addSubview:self.closeButton];
+    self.scrollView.contentSize = CGSizeMake(self.pageViews.count * self.frame.size.width, self.frame.size.height);
+    [self addPageViewsToScrollView];
 }
 
 - (void)addPageView:(UIView *)pageView
@@ -55,18 +110,38 @@
     [self.pageViews addObject: pageView];
 }
 
-- (void)addPageViewsToView
-{
-    for(UIView *view in self.pageViews)
-    {
-        [self addSubview:view];
-    }
-}
+//- (void)addPageViewsToView
+//{
+//    for(UIView *view in self.pageViews)
+//    {
+//        [self addSubview:view];
+//    }
+//}
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.closeButton.frame = CGRectMake(self.bounds.size.width - 15, -15, 30, 30);
+    self.closeButton.frame = self.closeButtonRect;
+    self.scrollView.frame  = self.bounds;
+    [self.pageViews enumerateObjectsUsingBlock:^(UIView * _Nonnull pageView, NSUInteger idx, BOOL * _Nonnull stop)
+     {
+         CGRect expectedFrame = CGRectMake(self.bounds.size.width * idx, 0, self.bounds.size.width, self.bounds.size.height);
+         [pageView setFrame: expectedFrame];
+     }];
+    
+    [self.pageControl setFrame:CGRectMake(0, self.bounds.size.height - 30, self.bounds.size.width, 30)];
+}
+
+-(void)addOtherSubview:(UIView *)otherView
+{
+    [self addSubview: otherView];
+    [self bringSubviewToFront: otherView];
+}
+
+-(void)changeCloseButtonPosition:(CGRect)newRect
+{
+    self.closeButtonRect = newRect;
+    [self setNeedsDisplay];
 }
 
 -(void)dismissAnimated:(BOOL)animated
@@ -85,15 +160,15 @@
                              }];
                          }];
     }
+    else
+    {
+        [self removeFromSuperview];
+    }
 }
 
 - (void)dismissFromBtn
 {
-    if(self.dismissBlk != nil)
-    {
-        self.dismissBlk();
-    }
     [self dismissAnimated:YES];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"VCFloatViewDismiss" object:nil];
+    [self.delegate onClickedBackgroundAtFloatView:@"DemoFloatView"];
 }
 @end

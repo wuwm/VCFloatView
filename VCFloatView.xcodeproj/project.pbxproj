@@ -19,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB1AB8952122803C00729B60 /* VCFloatViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCFloatViewDelegate.h; sourceTree = "<group>"; };
 		AB556FEE211BD8ED0033C127 /* VCFloatView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VCFloatView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB556FF1211BD8ED0033C127 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AB556FF2211BD8ED0033C127 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -68,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				AB55700D211C0FB00033C127 /* close.png */,
+				AB1AB8952122803C00729B60 /* VCFloatViewDelegate.h */,
 				AB557007211BD9020033C127 /* VCFloatViewManager.h */,
 				AB557008211BD9020033C127 /* VCFloatViewManager.m */,
 				AB55700A211BDDBE0033C127 /* VCFloatView.h */,
