@@ -32,6 +32,7 @@
         [self addObserver:self forKeyPath:@"currentPage" options: NSKeyValueObservingOptionNew context:nil];
         self.closeButtonRect = CGRectMake(self.frame.size.width - 15, -15, 30, 30);
         [self addCloseButton];
+        self.identifier = @"ID NOT SET.";
     }
     return self;
 }
@@ -58,7 +59,7 @@
 {
     self.closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.closeButton setBackgroundImage:[UIImage imageNamed:@"close.png"] forState:(UIControlStateNormal)];
-    [self.closeButton addTarget:self action:@selector(dismissFromBtn) forControlEvents: UIControlEventTouchUpInside];
+    [self.closeButton addTarget:self action:@selector(dismissFromButton) forControlEvents: UIControlEventTouchUpInside];
     [self addSubview: self.closeButton];
 }
 
@@ -67,8 +68,6 @@
     self.pageControl = [[UIPageControl alloc] init];
     self.pageControl.numberOfPages = self.pageViews.count;
     self.pageControl.currentPage = [self.currentPage unsignedIntegerValue];
-//    self.pageControl.tintColor = [UIColor blackColor];
-//    self.pageControl.backgroundColor = [UIColor orangeColor];
     self.pageControl.pageIndicatorTintColor = [UIColor grayColor];
     self.pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
     [self addSubview: self.pageControl];
@@ -91,13 +90,8 @@
 {
     for(int idx = 0; idx < self.pageViews.count; ++idx)
     {
-//        CGRect expectedFrame = CGRectMake(idx * self.bounds.size.width, 0, self.bounds.size.width, self.bounds.size.height);
-//        CGRect expectedFrame = CGRectMake(40, 0, self.bounds.size.width, self.bounds.size.height);
-//        [self.pageViews[idx] setFrame: expectedFrame];
         [self.scrollView addSubview: self.pageViews[idx]];
     }
-//    [self.scrollView addSubview: self.pageViews[0]];
-//    [self.scrollView addSubview: self.pageViews[1]];
 }
 
 - (void)reloadPageViews
@@ -119,14 +113,6 @@
 {
     [self.pageViews addObject: pageView];
 }
-
-//- (void)addPageViewsToView
-//{
-//    for(UIView *view in self.pageViews)
-//    {
-//        [self addSubview:view];
-//    }
-//}
 
 - (void)layoutSubviews
 {
@@ -176,32 +162,14 @@
     }
 }
 
-- (void)dismissFromBtn
+- (void)dismissFromButton
 {
     [self dismissAnimated:YES];
-    [self.delegate onClickedBackgroundAtFloatView:@"DemoFloatView"];
+    if(self.delegate != nil)
+    {
+        [self.delegate onClickedBackgroundAtFloatView: self.identifier];
+    }
 }
-
-//-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-//{
-//    NSUInteger currentPage = round(scrollView.contentOffset.x / self.scrollView.bounds.size.width);
-//    self.currentPage = [NSNumber numberWithUnsignedInteger:currentPage];
-//    [scrollView setContentOffset:CGPointMake(self.scrollView.bounds.size.width * currentPage, 0) animated:YES];
-//}
-
-//-(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
-//{
-//    NSUInteger currentPage = round(scrollView.contentOffset.x / self.scrollView.bounds.size.width);
-//    self.currentPage = [NSNumber numberWithUnsignedInteger:currentPage];
-//    [scrollView setContentOffset:CGPointMake(self.scrollView.bounds.size.width * currentPage, 0) animated:YES];
-//}
-
-//-(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
-//{
-//    NSUInteger currentPage = round(scrollView.contentOffset.x / self.scrollView.bounds.size.width);
-//    self.currentPage = [NSNumber numberWithUnsignedInteger:currentPage];
-//    [scrollView setContentOffset:CGPointMake(self.scrollView.bounds.size.width * currentPage, 0) animated:YES];
-//}
 
 -(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
 {
@@ -209,16 +177,6 @@
     self.currentPage = [NSNumber numberWithUnsignedInteger:currentPage];
     [scrollView setContentOffset:CGPointMake(self.scrollView.bounds.size.width * currentPage, 0) animated:YES];
 }
-
-//-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-//{
-//    if(YES)
-//    {
-//        NSUInteger currentPage = round(scrollView.contentOffset.x / self.scrollView.bounds.size.width);
-//        self.currentPage = [NSNumber numberWithUnsignedInteger:currentPage];
-//        [scrollView setContentOffset:CGPointMake(self.scrollView.bounds.size.width * currentPage, 0) animated:YES];
-//    }
-//}
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
 {

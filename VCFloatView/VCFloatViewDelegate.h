@@ -10,11 +10,9 @@
 
 @protocol VCFloatViewDelegate <NSObject>
 
-@required
+@optional
 - (void)onClickedCloseButtonAtFloatView: (NSString *)floatViewIdentifier;
 - (void)onClickedBackgroundAtFloatView: (NSString *)floatViewIdentifier;
-
-@optional
 - (void)onClickedPageViewAtFloatView: (NSString *)floatViewIdentifier AtIndex: (NSUInteger) index;
 
 @end

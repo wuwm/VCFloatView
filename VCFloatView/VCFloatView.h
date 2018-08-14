@@ -19,7 +19,7 @@ typedef void (^VCFloatViewDismissBlk) (void);
 
 - (instancetype)initWithFrame: (CGRect)frame andIdentifier: (NSString *)identifier;
 
-- (instancetype)initWithFrame: (CGRect)frame Identifier:(NSString *)identifier andPageViews: (NSArray<UIView *> *)pageViews;
+- (instancetype)initWithFrame: (CGRect)frame andIdentifier:(NSString *)identifier andPageViews: (NSMutableArray<UIView *> *)pageViews;
 
 - (void)addPageView: (UIView *)pageView;
 
