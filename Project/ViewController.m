@@ -34,16 +34,54 @@
 
 - (IBAction)onClickedFloatView:(UIButton *)sender
 {
-    UIView *v = [[UIView alloc] initWithFrame:(CGRectMake(0, 0, 400, 500))];
-//    v.backgroundColor = [UIColor blueColor];
+    UIView *v = [[UIView alloc] init];
+    v.backgroundColor = [UIColor blueColor];
     
-    UIView *vv = [[UIView alloc] initWithFrame:(CGRectMake(0, 0, 300, 800))];
-//    vv.backgroundColor = [UIColor greenColor];
+    UIView *vv = [[UIView alloc] init];
+    vv.backgroundColor = [UIColor greenColor];
+    
+    UIView *vvv = [[UIView alloc] init];
+    vvv.backgroundColor = [UIColor redColor];
+    
+    VCFloatView *floatView = [[VCFloatView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
+
+    [floatView addPageView:v];
+    [floatView addPageView:vv];
+    [floatView addPageView:vvv];
+    [floatView reloadPageViews];
+    [self.fvmgr addFloatView:floatView andPriority: VCFloatViewPriorityHigh];
+    [self.fvmgr showNextFloatViewOnView:self.view animated:YES];
+}
+
+- (IBAction)onClickedCusBtn:(UIButton *)sender
+{
+    UIView *v = [[UIView alloc] init];
+    v.backgroundColor = [UIColor blueColor];
+    
+    UIView *vv = [[UIView alloc] init];
+    vv.backgroundColor = [UIColor greenColor];
+    
+    UIView *vvv = [[UIView alloc] init];
+    vvv.backgroundColor = [UIColor redColor];
     
     VCFloatView *floatView = [[VCFloatView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
     [floatView changeCloseButtonPosition:CGRectMake(floatView.bounds.size.width/2.0 - 15, floatView.bounds.size.height + 50, 30, 30)];
     [floatView addPageView:v];
     [floatView addPageView:vv];
+    [floatView addPageView:vvv];
+    [floatView reloadPageViews];
+    [self.fvmgr addFloatView:floatView andPriority: VCFloatViewPriorityHigh];
+    [self.fvmgr showNextFloatViewOnView:self.view animated:YES];
+}
+- (IBAction)onClickedOnePage:(UIButton *)sender
+{
+    UIView *v = [[UIView alloc] init];
+    v.backgroundColor = [UIColor blueColor];
+    
+    VCFloatView *floatView = [[VCFloatView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
+    [floatView changeCloseButtonPosition:CGRectMake(floatView.bounds.size.width/2.0 - 15, floatView.bounds.size.height + 50, 30, 30)];
+    [floatView addPageView:v];
+
     [floatView reloadPageViews];
     [self.fvmgr addFloatView:floatView andPriority: VCFloatViewPriorityHigh];
     [self.fvmgr showNextFloatViewOnView:self.view animated:YES];

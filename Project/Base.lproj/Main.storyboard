@@ -20,17 +20,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Mi-Iz-ODf">
-                                <rect key="frame" x="135" y="122.5" width="104" height="30"/>
-                                <state key="normal" title="Start float view"/>
+                                <rect key="frame" x="104" y="122.5" width="166" height="30"/>
+                                <state key="normal" title="Start float view (default)"/>
                                 <connections>
                                     <action selector="onClickedFloatView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fdz-Qg-Trb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMd-N9-iaN">
+                                <rect key="frame" x="64" y="196" width="247" height="30"/>
+                                <state key="normal" title="Start float view (customized button)"/>
+                                <connections>
+                                    <action selector="onClickedCusBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tbf-MC-6D8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tp4-Wf-8Df">
+                                <rect key="frame" x="78" y="262" width="218" height="30"/>
+                                <state key="normal" title="Start float view (Only one page)"/>
+                                <connections>
+                                    <action selector="onClickedOnePage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iFW-4Y-y3H"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Tp4-Wf-8Df" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="B94-KR-05S"/>
+                            <constraint firstItem="Tp4-Wf-8Df" firstAttribute="top" secondItem="rMd-N9-iaN" secondAttribute="bottom" constant="36" id="Q4f-zb-hdF"/>
                             <constraint firstItem="2Mi-Iz-ODf" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.4" id="U6O-At-pQE"/>
+                            <constraint firstItem="rMd-N9-iaN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bFF-Be-HjX"/>
                             <constraint firstItem="2Mi-Iz-ODf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ggx-60-MOv"/>
+                            <constraint firstItem="rMd-N9-iaN" firstAttribute="top" secondItem="2Mi-Iz-ODf" secondAttribute="bottom" constant="43.5" id="rSa-dW-bhJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

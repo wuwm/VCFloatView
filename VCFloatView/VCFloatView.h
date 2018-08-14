@@ -11,7 +11,7 @@
 
 typedef void (^VCFloatViewDismissBlk) (void);
 
-@interface VCFloatView<UIScrollViewDelegate> : UIView
+@interface VCFloatView : UIView 
 
 @property (nonatomic, assign) CGRect closeButtonRect;
 @property (nonatomic, weak) id<VCFloatViewDelegate> delegate;
