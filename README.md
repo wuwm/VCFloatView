@@ -7,6 +7,10 @@ VCFloatView makes float views pop up and dismiss according to their priority. It
 
 You can customize actions after dimissing, with the help of Block in Objective-C. It's easy to use, you can refer to ViewController.m.
 
+# Cocoapods
+
+Pending
+
 # Demo
 
 ![](demo_floatview.gif)
