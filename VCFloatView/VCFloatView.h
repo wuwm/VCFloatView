@@ -2,33 +2,16 @@
 //  VCFloatView.h
 //  VCFloatView
 //
-//  Created by Weiming Wu on 2018/8/9.
+//  Created by Weiming Wu on 2018/8/14.
 //  Copyright © 2018 Weiming Wu. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "VCFloatViewDelegate.h"
+#import <Foundation/Foundation.h>
 
-typedef void (^VCFloatViewDismissBlk) (void);
+typedef void(^TapCloseButtonBlock)(void);
+typedef void(^TapPageViewButtonBlock)(NSUInteger pageIndex);
+typedef void(^TapBackgroundBlock)(void);
 
-@interface VCFloatView : UIView 
-
-@property (nonatomic, assign) CGRect closeButtonRect;
-@property (nonatomic, weak) id<VCFloatViewDelegate> delegate;
-@property (nonatomic, strong) NSString *identifier;
-
-- (instancetype)initWithFrame: (CGRect)frame andIdentifier: (NSString *)identifier;
-
-- (instancetype)initWithFrame: (CGRect)frame andIdentifier:(NSString *)identifier andPageViews: (NSMutableArray<UIView *> *)pageViews;
-
-- (void)addPageView: (UIView *)pageView;
-
-- (void)addOtherSubview: (UIView *)otherView;
-
-- (void)changeCloseButtonPosition: (CGRect)newRect;
-
-- (void)reloadPageViews;
-
-- (void)dismissAnimated: (BOOL)animated;
+@interface VCFloatView : NSObject
 
 @end

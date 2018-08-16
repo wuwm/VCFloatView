@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB1AB89A2122FCB100729B60 /* VCFloatView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1AB8992122FCB100729B60 /* VCFloatView.m */; };
 		AB556FF3211BD8ED0033C127 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB556FF2211BD8ED0033C127 /* AppDelegate.m */; };
 		AB556FF6211BD8ED0033C127 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB556FF5211BD8ED0033C127 /* ViewController.m */; };
 		AB556FF9211BD8ED0033C127 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB556FF7211BD8ED0033C127 /* Main.storyboard */; };
@@ -14,12 +15,14 @@
 		AB556FFE211BD8EE0033C127 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB556FFC211BD8EE0033C127 /* LaunchScreen.storyboard */; };
 		AB557001211BD8EE0033C127 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB557000211BD8EE0033C127 /* main.m */; };
 		AB557009211BD9020033C127 /* VCFloatViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB557008211BD9020033C127 /* VCFloatViewManager.m */; };
-		AB55700C211BDDBE0033C127 /* VCFloatView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB55700B211BDDBE0033C127 /* VCFloatView.m */; };
+		AB55700C211BDDBE0033C127 /* VCFloatContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB55700B211BDDBE0033C127 /* VCFloatContentView.m */; };
 		AB55700E211C0FB00033C127 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = AB55700D211C0FB00033C127 /* close.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AB1AB8952122803C00729B60 /* VCFloatViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCFloatViewDelegate.h; sourceTree = "<group>"; };
+		AB1AB8982122FCB100729B60 /* VCFloatView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCFloatView.h; sourceTree = "<group>"; };
+		AB1AB8992122FCB100729B60 /* VCFloatView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCFloatView.m; sourceTree = "<group>"; };
 		AB556FEE211BD8ED0033C127 /* VCFloatView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VCFloatView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB556FF1211BD8ED0033C127 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AB556FF2211BD8ED0033C127 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -32,8 +35,8 @@
 		AB557000211BD8EE0033C127 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AB557007211BD9020033C127 /* VCFloatViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCFloatViewManager.h; sourceTree = "<group>"; };
 		AB557008211BD9020033C127 /* VCFloatViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCFloatViewManager.m; sourceTree = "<group>"; };
-		AB55700A211BDDBE0033C127 /* VCFloatView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCFloatView.h; sourceTree = "<group>"; };
-		AB55700B211BDDBE0033C127 /* VCFloatView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCFloatView.m; sourceTree = "<group>"; };
+		AB55700A211BDDBE0033C127 /* VCFloatContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCFloatContentView.h; sourceTree = "<group>"; };
+		AB55700B211BDDBE0033C127 /* VCFloatContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCFloatContentView.m; sourceTree = "<group>"; };
 		AB55700D211C0FB00033C127 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,8 +75,10 @@
 				AB1AB8952122803C00729B60 /* VCFloatViewDelegate.h */,
 				AB557007211BD9020033C127 /* VCFloatViewManager.h */,
 				AB557008211BD9020033C127 /* VCFloatViewManager.m */,
-				AB55700A211BDDBE0033C127 /* VCFloatView.h */,
-				AB55700B211BDDBE0033C127 /* VCFloatView.m */,
+				AB55700A211BDDBE0033C127 /* VCFloatContentView.h */,
+				AB55700B211BDDBE0033C127 /* VCFloatContentView.m */,
+				AB1AB8982122FCB100729B60 /* VCFloatView.h */,
+				AB1AB8992122FCB100729B60 /* VCFloatView.m */,
 			);
 			path = VCFloatView;
 			sourceTree = "<group>";
@@ -165,7 +170,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB55700C211BDDBE0033C127 /* VCFloatView.m in Sources */,
+				AB1AB89A2122FCB100729B60 /* VCFloatView.m in Sources */,
+				AB55700C211BDDBE0033C127 /* VCFloatContentView.m in Sources */,
 				AB557009211BD9020033C127 /* VCFloatViewManager.m in Sources */,
 				AB556FF6211BD8ED0033C127 /* ViewController.m in Sources */,
 				AB557001211BD8EE0033C127 /* main.m in Sources */,

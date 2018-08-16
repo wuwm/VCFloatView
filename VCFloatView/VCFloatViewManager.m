@@ -7,14 +7,14 @@
 //
 
 #import "VCFloatViewManager.h"
-#import "VCFloatView.h"
+#import "VCFloatContentView.h"
 #import <UserNotifications/UserNotifications.h>
 
 @interface VCFloatViewManager()
 
-@property (nonatomic, strong) NSMutableArray<VCFloatView *> *viewQueue_HighPriority;
-@property (nonatomic, strong) NSMutableArray<VCFloatView *> *viewQueue_LowPriority;
-@property (nonatomic, strong) VCFloatView *currentFloatView;
+@property (nonatomic, strong) NSMutableArray<VCFloatContentView *> *viewQueue_HighPriority;
+@property (nonatomic, strong) NSMutableArray<VCFloatContentView *> *viewQueue_LowPriority;
+@property (nonatomic, strong) VCFloatContentView *currentFloatView;
 @property (nonatomic, strong) UIView *backgroundView;
 
 @end
@@ -36,7 +36,7 @@
     return self;
 }
 
-- (void)addFloatView:(VCFloatView *)floatView andPriority:(FloatViewPriority)floatViewPriority
+- (void)addFloatView:(VCFloatContentView *)floatView andPriority:(FloatViewPriority)floatViewPriority
 {
     @synchronized(self)
     {
@@ -80,7 +80,7 @@
 {
     CGPoint viewCenter = CGPointMake([[UIScreen mainScreen] bounds].size.width / 2.0f, [[UIScreen mainScreen] bounds].size.height / 2.0f);
     [view addSubview: self.backgroundView];
-    VCFloatView *floatViewToShow = nil;
+    VCFloatContentView *floatViewToShow = nil;
     if(self.viewQueue_HighPriority.count == 0)
     {
         //Use low priority queue

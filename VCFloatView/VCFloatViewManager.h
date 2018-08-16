@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class VCFloatView;
+@class VCFloatContentView;
 
 typedef void(^TapCloseButtonBlock)(NSString *floatViewIdentifier);
 typedef void(^TapPageViewButtonBlock)(NSString *floatViewIdentifier, NSUInteger pageIndex);
@@ -25,7 +25,7 @@ typedef NS_ENUM(NSUInteger, FloatViewPriority)
 
 - (void)showNextFloatViewOnKeyWindow: (BOOL)animated;
 
-- (void)addFloatView: (VCFloatView *)floatView andPriority: (FloatViewPriority) floatViewPriority;
+- (void)addFloatView: (VCFloatContentView *)floatView andPriority: (FloatViewPriority) floatViewPriority;
 
 - (void)dissmissCurrentFloatView;
 

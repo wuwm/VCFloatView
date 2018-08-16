@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "VCFloatViewManager.h"
-#import "VCFloatView.h"
+#import "VCFloatContentView.h"
 
 @interface ViewController ()
 
@@ -43,7 +43,7 @@
     UIView *vvv = [[UIView alloc] init];
     vvv.backgroundColor = [UIColor redColor];
     
-    VCFloatView *floatView = [[VCFloatView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
+    VCFloatContentView *floatView = [[VCFloatContentView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
 
     [floatView addPageView:v];
     [floatView addPageView:vv];
@@ -64,7 +64,7 @@
     UIView *vvv = [[UIView alloc] init];
     vvv.backgroundColor = [UIColor redColor];
     
-    VCFloatView *floatView = [[VCFloatView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
+    VCFloatContentView *floatView = [[VCFloatContentView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
     [floatView changeCloseButtonPosition:CGRectMake(floatView.bounds.size.width/2.0 - 15, floatView.bounds.size.height + 50, 30, 30)];
     [floatView addPageView:v];
     [floatView addPageView:vv];
@@ -78,7 +78,7 @@
     UIView *v = [[UIView alloc] init];
     v.backgroundColor = [UIColor blueColor];
     
-    VCFloatView *floatView = [[VCFloatView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
+    VCFloatContentView *floatView = [[VCFloatContentView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
     [floatView changeCloseButtonPosition:CGRectMake(floatView.bounds.size.width/2.0 - 15, floatView.bounds.size.height + 50, 30, 30)];
     [floatView addPageView:v];
 
