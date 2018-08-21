@@ -174,14 +174,48 @@
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    NSUInteger currentPage = round(scrollView.contentOffset.x / self.scrollView.bounds.size.width);
+    NSUInteger currentPage = 0;
+    CGFloat currentPage_temp = scrollView.contentOffset.x / self.scrollView.bounds.size.width;
+    CGPoint translatedPoint = [scrollView.panGestureRecognizer translationInView:scrollView];
+    if(translatedPoint.x < 0)
+    {
+        if((currentPage_temp - floor(currentPage_temp)) > 0.2)
+        {
+            currentPage = ceil(currentPage_temp);
+        }
+    }
+    if(translatedPoint.x > 0)
+    {
+        if((ceil(currentPage_temp) - currentPage_temp) > 0.2)
+        {
+            currentPage = floor(currentPage_temp);
+        }
+    }
+    
     self.currentPage = [NSNumber numberWithUnsignedInteger:currentPage];
     [scrollView setContentOffset:CGPointMake(self.scrollView.bounds.size.width * currentPage, 0) animated:YES];
 }
 
 -(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
 {
-    NSUInteger currentPage = round(scrollView.contentOffset.x / self.scrollView.bounds.size.width);
+    NSUInteger currentPage = 0;
+    CGFloat currentPage_temp = scrollView.contentOffset.x / self.scrollView.bounds.size.width;
+    CGPoint translatedPoint = [scrollView.panGestureRecognizer translationInView:scrollView];
+    if(translatedPoint.x < 0)
+    {
+        if((currentPage_temp - floor(currentPage_temp)) > 0.2)
+        {
+            currentPage = ceil(currentPage_temp);
+        }
+    }
+    if(translatedPoint.x > 0)
+    {
+        if((ceil(currentPage_temp) - currentPage_temp) > 0.2)
+        {
+            currentPage = floor(currentPage_temp);
+        }
+    }
+    
     self.currentPage = [NSNumber numberWithUnsignedInteger:currentPage];
     [scrollView setContentOffset:CGPointMake(self.scrollView.bounds.size.width * currentPage, 0) animated:YES];
 }
