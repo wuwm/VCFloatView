@@ -17,6 +17,11 @@
 		AB557009211BD9020033C127 /* VCFloatViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB557008211BD9020033C127 /* VCFloatViewManager.m */; };
 		AB55700C211BDDBE0033C127 /* VCFloatContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB55700B211BDDBE0033C127 /* VCFloatContentView.m */; };
 		AB55700E211C0FB00033C127 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = AB55700D211C0FB00033C127 /* close.png */; };
+		ABFC56EC212C285B00886F0B /* CustomizedPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFC56EB212C285B00886F0B /* CustomizedPageView.m */; };
+		ABFC56F1212C28E200886F0B /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = ABFC56ED212C28E100886F0B /* 4.png */; };
+		ABFC56F2212C28E200886F0B /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = ABFC56EE212C28E100886F0B /* 3.png */; };
+		ABFC56F3212C28E200886F0B /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = ABFC56EF212C28E200886F0B /* 2.png */; };
+		ABFC56F4212C28E200886F0B /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = ABFC56F0212C28E200886F0B /* 1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +43,12 @@
 		AB55700A211BDDBE0033C127 /* VCFloatContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCFloatContentView.h; sourceTree = "<group>"; };
 		AB55700B211BDDBE0033C127 /* VCFloatContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCFloatContentView.m; sourceTree = "<group>"; };
 		AB55700D211C0FB00033C127 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		ABFC56EA212C285B00886F0B /* CustomizedPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomizedPageView.h; sourceTree = "<group>"; };
+		ABFC56EB212C285B00886F0B /* CustomizedPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomizedPageView.m; sourceTree = "<group>"; };
+		ABFC56ED212C28E100886F0B /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		ABFC56EE212C28E100886F0B /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		ABFC56EF212C28E200886F0B /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		ABFC56F0212C28E200886F0B /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +97,12 @@
 		AB557010211C1BC60033C127 /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				ABFC56F0212C28E200886F0B /* 1.png */,
+				ABFC56EF212C28E200886F0B /* 2.png */,
+				ABFC56EE212C28E100886F0B /* 3.png */,
+				ABFC56ED212C28E100886F0B /* 4.png */,
+				ABFC56EA212C285B00886F0B /* CustomizedPageView.h */,
+				ABFC56EB212C285B00886F0B /* CustomizedPageView.m */,
 				AB556FF1211BD8ED0033C127 /* AppDelegate.h */,
 				AB556FF2211BD8ED0033C127 /* AppDelegate.m */,
 				AB556FF4211BD8ED0033C127 /* ViewController.h */,
@@ -156,9 +173,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABFC56F4212C28E200886F0B /* 1.png in Resources */,
 				AB556FFE211BD8EE0033C127 /* LaunchScreen.storyboard in Resources */,
 				AB55700E211C0FB00033C127 /* close.png in Resources */,
+				ABFC56F2212C28E200886F0B /* 3.png in Resources */,
 				AB556FFB211BD8EE0033C127 /* Assets.xcassets in Resources */,
+				ABFC56F3212C28E200886F0B /* 2.png in Resources */,
+				ABFC56F1212C28E200886F0B /* 4.png in Resources */,
 				AB556FF9211BD8ED0033C127 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB1AB89A2122FCB100729B60 /* VCFloatView.m in Sources */,
+				ABFC56EC212C285B00886F0B /* CustomizedPageView.m in Sources */,
 				AB55700C211BDDBE0033C127 /* VCFloatContentView.m in Sources */,
 				AB557009211BD9020033C127 /* VCFloatViewManager.m in Sources */,
 				AB556FF6211BD8ED0033C127 /* ViewController.m in Sources */,

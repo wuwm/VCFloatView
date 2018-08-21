@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "VCFloatViewManager.h"
 #import "VCFloatContentView.h"
+#import "CustomizedPageView.h"
 
 @interface ViewController ()
 
@@ -43,11 +44,17 @@
     UIView *vvv = [[UIView alloc] init];
     vvv.backgroundColor = [UIColor redColor];
     
-    VCFloatContentView *floatView = [[VCFloatContentView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
+    CustomizedPageView *p1 = [[CustomizedPageView alloc] initWithTitle:@"This is Page1" andImageName: @"1.png"];
+    CustomizedPageView *p2 = [[CustomizedPageView alloc] initWithTitle:@"This is Page2" andImageName: @"2.png"];
+    CustomizedPageView *p3 = [[CustomizedPageView alloc] initWithTitle:@"This is Page3" andImageName: @"3.png"];
+    CustomizedPageView *p4 = [[CustomizedPageView alloc] initWithTitle:@"This is Page4" andImageName: @"4.png"];
+    
+    VCFloatContentView *floatView = [[VCFloatContentView alloc] initWithFrame:CGRectMake(0, 0, 250, 300)];
 
-    [floatView addPageView:v];
-    [floatView addPageView:vv];
-    [floatView addPageView:vvv];
+    [floatView addPageView:p1];
+    [floatView addPageView:p2];
+    [floatView addPageView:p3];
+    [floatView addPageView:p4];
     [floatView reloadPageViews];
     [self.fvmgr addFloatView:floatView andPriority: VCFloatViewPriorityHigh];
     [self.fvmgr showNextFloatViewOnView:self.view animated:YES];
@@ -64,11 +71,17 @@
     UIView *vvv = [[UIView alloc] init];
     vvv.backgroundColor = [UIColor redColor];
     
-    VCFloatContentView *floatView = [[VCFloatContentView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
+    CustomizedPageView *p1 = [[CustomizedPageView alloc] initWithTitle:@"This is Page1" andImageName: @"1.png"];
+    CustomizedPageView *p2 = [[CustomizedPageView alloc] initWithTitle:@"This is Page2" andImageName: @"2.png"];
+    CustomizedPageView *p3 = [[CustomizedPageView alloc] initWithTitle:@"This is Page3" andImageName: @"3.png"];
+    CustomizedPageView *p4 = [[CustomizedPageView alloc] initWithTitle:@"This is Page4" andImageName: @"4.png"];
+    
+    VCFloatContentView *floatView = [[VCFloatContentView alloc] initWithFrame:CGRectMake(0, 0, 250, 300)];
     [floatView changeCloseButtonPosition:CGRectMake(floatView.bounds.size.width/2.0 - 15, floatView.bounds.size.height + 50, 30, 30)];
-    [floatView addPageView:v];
-    [floatView addPageView:vv];
-    [floatView addPageView:vvv];
+    [floatView addPageView:p1];
+    [floatView addPageView:p2];
+    [floatView addPageView:p3];
+    [floatView addPageView:p4];
     [floatView reloadPageViews];
     [self.fvmgr addFloatView:floatView andPriority: VCFloatViewPriorityHigh];
     [self.fvmgr showNextFloatViewOnView:self.view animated:YES];
@@ -78,10 +91,23 @@
     UIView *v = [[UIView alloc] init];
     v.backgroundColor = [UIColor blueColor];
     
-    VCFloatContentView *floatView = [[VCFloatContentView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
+    UIView *vv = [[UIView alloc] init];
+    vv.backgroundColor = [UIColor greenColor];
+    
+    UIView *vvv = [[UIView alloc] init];
+    vvv.backgroundColor = [UIColor redColor];
+    
+    CustomizedPageView *p1 = [[CustomizedPageView alloc] initWithTitle:@"This is Page 1" andImageName: @"1.png"];
+    CustomizedPageView *p2 = [[CustomizedPageView alloc] initWithTitle:@"This is Page 2" andImageName: @"2.png"];
+    CustomizedPageView *p3 = [[CustomizedPageView alloc] initWithTitle:@"This is Page 3" andImageName: @"3.png"];
+    CustomizedPageView *p4 = [[CustomizedPageView alloc] initWithTitle:@"This is Page 4" andImageName: @"4.png"];
+    
+    VCFloatContentView *floatView = [[VCFloatContentView alloc] initWithFrame:CGRectMake(0, 0, 250, 300)];
     [floatView changeCloseButtonPosition:CGRectMake(floatView.bounds.size.width/2.0 - 15, floatView.bounds.size.height + 50, 30, 30)];
-    [floatView addPageView:v];
-
+    [floatView addPageView:p1];
+//    [floatView addPageView:p2];
+//    [floatView addPageView:p3];
+//    [floatView addPageView:p4];
     [floatView reloadPageViews];
     [self.fvmgr addFloatView:floatView andPriority: VCFloatViewPriorityHigh];
     [self.fvmgr showNextFloatViewOnView:self.view animated:YES];

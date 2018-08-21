@@ -68,8 +68,8 @@
     self.pageControl = [[UIPageControl alloc] init];
     self.pageControl.numberOfPages = self.pageViews.count;
     self.pageControl.currentPage = [self.currentPage unsignedIntegerValue];
-    self.pageControl.pageIndicatorTintColor = [UIColor grayColor];
-    self.pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
+    self.pageControl.pageIndicatorTintColor = [[UIColor blackColor] colorWithAlphaComponent: 0.1];
+    self.pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:0.192 green:0.761 blue:0.486 alpha:1];
     [self addSubview: self.pageControl];
 }
 
