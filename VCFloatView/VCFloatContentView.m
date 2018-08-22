@@ -182,6 +182,8 @@
         if((currentPage_temp - floor(currentPage_temp)) > 0.2)
         {
             currentPage = ceil(currentPage_temp);
+        }else{
+            currentPage = floor(currentPage_temp);
         }
     }
     if(translatedPoint.x > 0)
@@ -189,6 +191,8 @@
         if((ceil(currentPage_temp) - currentPage_temp) > 0.2)
         {
             currentPage = floor(currentPage_temp);
+        }else{
+            currentPage = ceil(currentPage_temp);
         }
     }
     
@@ -206,6 +210,8 @@
         if((currentPage_temp - floor(currentPage_temp)) > 0.2)
         {
             currentPage = ceil(currentPage_temp);
+        }else{
+            currentPage = floor(currentPage_temp);
         }
     }
     if(translatedPoint.x > 0)
@@ -213,6 +219,8 @@
         if((ceil(currentPage_temp) - currentPage_temp) > 0.2)
         {
             currentPage = floor(currentPage_temp);
+        }else{
+            currentPage = ceil(currentPage_temp);
         }
     }
     
