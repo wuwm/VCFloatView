@@ -6,12 +6,19 @@
 //  Copyright © 2018 Weiming Wu. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-typedef void(^TapCloseButtonBlock)(void);
-typedef void(^TapPageViewButtonBlock)(NSUInteger pageIndex);
-typedef void(^TapBackgroundBlock)(void);
+#import <UIKit/UIKit.h>
+#import "VCFloatViewDelegate.h"
 
 @interface VCFloatView : NSObject
+
+@property(nonatomic, weak) id<VCFloatViewDelegate> delegate;
+
++ (void)FloatViewWithViews: (NSArray<UIView *> *)pageViews;
+
+- (void)showFloatViewOn: (UIView *)view;
+
+- (void)showFloatViewOnKeyWindow;
+
+- (void)dissmiss;
 
 @end
